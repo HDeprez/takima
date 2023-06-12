@@ -21,6 +21,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USR }} -p ${{ secrets.DOCKER_PWD }}
 
       - name: Build image and push backend
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         uses: docker/build-push-action@v3
         with:
           # relative path to the place where source code with Dockerfile is located
@@ -31,7 +32,6 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Build image and push database
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         uses: docker/build-push-action@v3
         with:
           # relative path to the place where source code with Dockerfile is located
