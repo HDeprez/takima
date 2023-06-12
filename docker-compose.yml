@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+    backend:
+        build:
+          ./simple-api
+        networks:
+          - my-network
+        depends_on:
+         - database
+
+    database:
+        build:
+          ./database
+        networks:
+         - my-network
+        volumes:
+          - data_db:/var/lib/postgresql/data
+
+    httpd:
+        build:
+          ./HTTP_Server
+        ports:
+          - 8080:80  
+        networks:
+          - my-network
+        depends_on:
+          - backend
+
+volumes:
+  data_db:
+
+networks:
+    my-network:
