@@ -9,7 +9,6 @@ on:
 jobs:
   # define job to build and publish docker image
   build-and-push-docker-image:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     # run only when code is compiling and tests are passing
     runs-on: ubuntu-22.04
 
@@ -32,6 +31,7 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Build image and push database
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         uses: docker/build-push-action@v3
         with:
           # relative path to the place where source code with Dockerfile is located
