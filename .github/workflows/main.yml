@@ -58,4 +58,4 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: ./HTTP_Server
           # Note: tags has to be all lower-case
-          tags: ${{secrets.DOCKER_USR}}/tp-devops/HTTP_Server
+          tags: ${{secrets.DOCKER_USR}}/tp-devops/http_server
