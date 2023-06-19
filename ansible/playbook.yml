@@ -7,4 +7,5 @@
     - roles/database
     - roles/app
     - roles/proxy
+    - roles/front
   
