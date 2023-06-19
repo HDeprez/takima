@@ -2,9 +2,9 @@
 # tasks file for roles/proxy
   - name: Run HTTPD
     docker_container:
-      name: database
+      name: httpd
       networks:
       - name: app-network
       image: awakeduck/takima_http_server:latest
       published_ports:
-      - 8080:80
+      - 80:80

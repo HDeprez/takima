@@ -27,6 +27,15 @@ services:
         depends_on:
           - backend
 
+    front:
+        build:
+          ./devops-front-main
+        ports:
+          - 80:80
+        networks:
+          - my-network
+        depends_on: httpd
+
 volumes:
   data_db:
 
