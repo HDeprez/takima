@@ -10,3 +10,5 @@
         POSTGRES_USER: "exampleuser"
         POSTGRES_PASSWORD: "examplepassword"
       image: awakeduck/takima_database:latest
+      volumes:
+      - data_db:/var/lib/postgresql/data
