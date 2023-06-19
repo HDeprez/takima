@@ -30,8 +30,6 @@ services:
     front:
         build:
           ./devops-front-main
-        ports:
-          - 80:80
         networks:
           - my-network
         depends_on: httpd
