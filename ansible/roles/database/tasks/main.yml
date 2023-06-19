@@ -1,0 +1,12 @@
+---
+# tasks file for roles/database
+  - name: Run Database
+    docker_container:
+      name: database
+      networks: 
+      - name: app-network
+      env:
+        POSTGRES_DB: "tp_bd"
+        POSTGRES_USER: "usr"
+        POSTGRES_PASSWORD: "pwd"
+      image: awakeduck/takima_database:latest
